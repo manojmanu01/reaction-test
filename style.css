@@ -1,0 +1,74 @@
+*{
+    margin:0 ;
+    box-sizing: border-box;
+}
+
+.win {
+    width: 50px;
+    height: 50px;
+    padding:5px;
+    background-color: rgb(124, 231, 231);
+    display: grid;
+    place-items: center;
+    border:2px solid red;
+    border-radius: 5rem;
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.win::before{
+    content:"x";
+    font-family:"Segoe UI";
+}
+
+
+.start{
+    border:1px solid black;
+    padding: 5px 10px;
+    position: fixed;
+    inset:0;
+    width:fit-content;
+    height: fit-content;
+    margin:auto;
+    cursor:pointer;
+}
+
+.start:hover{
+    background:red;
+    color:white;
+}
+
+.scoreboard{
+    position: fixed;
+    left: 10px;
+    top:10px;
+}
+
+.timer{
+    height:7px;
+    position:fixed;
+    width:100%;
+    background:grey;
+}
+
+.timer .value{
+    width:100%;
+    background:red;
+    height:100%;
+}
+
+.timer .value.go {
+    animation: shrink linear forwards;
+    animation-duration:var(--timer);
+
+}
+
+@keyframes shrink{
+    0%{
+        width:100%;
+    }
+    100%{
+        width:0%;
+    }
+}
