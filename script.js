@@ -17,6 +17,7 @@ function resetgame() {
     score = 0;
     start_button.style.display="block";
     document.querySelectorAll(".win").forEach(ele => ele.remove());
+    refreshScoreboard();
 }
 
 function endgame(){

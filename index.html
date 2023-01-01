@@ -6,9 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-    <title>Document</title>
+    <title>mouse accuracy</title>
 </head>
 <body>
+<div class="cursor"></div>
+<script type="text/javascript">
+    const cursor = document.querySelector(".cursor");
+    var timeout;
+
+    //follow cursor on mousemove
+    document.addEventListener("mousemove", (e) => {
+      let x = e.pageX;
+      let y = e.pageY;
+
+      cursor.style.top = y + "px";
+      cursor.style.left = x + "px";
+      cursor.style.display = "block";
+
+      //cursor effects when mouse stopped
+      function mouseStopped(){
+        cursor.style.display = "none";
+      }
+      clearTimeout(timeout);
+      timeout = setTimeout(mouseStopped, 1000);
+    });
+
+    //cursor effects when mouseout
+    document.addEventListener("mouseout", () => {
+      cursor.style.display = "none";
+    });
+    </script>
 <div class="timer">
     <div style="--timer:3s;" class="value"></div>
 </div>
